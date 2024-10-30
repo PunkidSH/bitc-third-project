@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8080
 
 spring:
   application:
@@ -12,9 +12,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://58.239.58.243:3306/third_db?userSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/third_db?userSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: user1
-    password: tjdghk94
+    password: "!94Punkidpsh"
 
   jpa:
     database:
@@ -22,7 +22,7 @@ spring:
     hibernate:
       ddl-auto: update
     defer-datasource-initialization: true
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
       format_sql: true
