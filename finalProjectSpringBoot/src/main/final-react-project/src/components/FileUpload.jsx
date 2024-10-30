@@ -33,7 +33,7 @@ const FileUpload = () => {
         formData.append('eventPoster', eventPoster);
 
         try {
-            const response = await axios.post('http://3.34.124.123:8080/events', formData, {
+            const response = await axios.post('http://15.164.61.252:8080/api/events', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

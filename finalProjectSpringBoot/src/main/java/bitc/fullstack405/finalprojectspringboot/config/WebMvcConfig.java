@@ -21,10 +21,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
     // 지정한 외부폴더를 스프링의 내부 폴더로 추가(행사 이미지)
-    registry.addResourceHandler("/eventImg/**").addResourceLocations("file:/home/ec2user/eventImg/");
+    registry.addResourceHandler("/eventImg/**").addResourceLocations("file:///home/ec2-user/eventImg/");
 
     // 지정한 외부폴더를 스프링의 내부 폴더로 추가(QR 코드 이미지)
-    registry.addResourceHandler("/qrImg/**").addResourceLocations("file:/home/ec2-user/qrImg/");
+    registry.addResourceHandler("/qrImg/**").addResourceLocations("file:///home/ec2-user/qrImg/");
+
+    registry.addResourceHandler("/reactImg/**").addResourceLocations("file:///home/ec2-user/reactImg/");
 
     registry.addResourceHandler("/assets/**")
         .addResourceLocations("classpath:/static/assets/")

@@ -1,5 +1,5 @@
 import Events from "../../pages/Events.jsx";
-import { NavLink, Link } from "react-router-dom";
+import {NavLink, Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "../common/Pagination.jsx";
@@ -17,6 +17,7 @@ function EventList() {
     const [searchTerm, setSearchTerm] = useState('');
     const [uploaderSearchTerm, setUploaderSearchTerm] = useState('');
     const [approverSearchTerm, setApproverSearchTerm] = useState('');
+  const navigate = useNavigate();
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -87,7 +88,7 @@ function EventList() {
     };
 
     useEffect(() => {
-        axios.get('http://3.34.124.123:8080/event/list')
+        axios.get('http://15.164.61.252:8080/api/event/list')
             .then(res => {
                 if (res.data) {
                     setEventData(res.data);
@@ -102,7 +103,7 @@ function EventList() {
             });
     }, []);
 
-    const moveToEventWrite = () => window.location.href = '/event/write';
+    const moveToEventWrite = () => navigate('/event/write');
 
     if (loading) {
         return <div>Loading...</div>;
@@ -236,7 +237,7 @@ function EventList() {
                             <div className={'col-3 thumbnail'}>
                                 <Link to={`/event/${item.eventId}`}>
                                     <img
-                                        src={`http://3.34.124.123:8080/eventImg/${item.eventPoster}`}
+                                        src={`http://15.164.61.252:8080/eventImg/${item.eventPoster}`}
                                         alt={item.eventTitle}
                                         className={'w-100'}
                                         onError={onErrorImg}

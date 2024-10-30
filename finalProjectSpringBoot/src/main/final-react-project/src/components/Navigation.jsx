@@ -5,8 +5,8 @@ import events from "../pages/Events.jsx";
 import member from "../pages/Member.jsx";
 
 const navItems = [
-  { path: '/', label: '행사관리', icon: '/src/assets/images/ico_event_w.svg' },
-  { path: '/member', label: '회원관리', icon: '/src/assets/images/ico_member_w.svg' },
+  { path: '/', label: '행사관리', icon: '/ico_event_w.svg' },
+  { path: '/member', label: '회원관리', icon: '/ico_member_w.svg' },
 ];
 
 function Navigation() {

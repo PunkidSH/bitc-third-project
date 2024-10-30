@@ -42,7 +42,7 @@ function EventAttendList() {
 
 
   useEffect(() => {
-    axios.get(`http://3.34.124.123:8080/event/attendList/${eventId}`)
+    axios.get(`http://15.164.61.252:8080/api/event/attendList/${eventId}`)
       .then(res => {
         const eventInfo = res.data;
         setEventData(eventInfo);

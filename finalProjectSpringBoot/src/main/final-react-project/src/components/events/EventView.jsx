@@ -48,7 +48,7 @@ function EventView () {
     if (eventData && eventData.eventPoster) {
       return (
         <div>
-          <img src={`http://localhost:8080/eventImg/${eventData.eventPoster}`} alt="Poster" className={'mw-100'}/>
+          <img src={`http://15.164.61.252:8080/eventImg/${eventData.eventPoster}`} alt="Poster" className={'mw-100'}/>
         </div>
       );
     }
@@ -57,12 +57,12 @@ function EventView () {
 
   const nonData = () => {
     alert("행사정보가 존재하지 않는 경로입니다.");
-    window.location.href = "/";
+    navigate("/");
   }
 
   useEffect(() => {
     axios
-      .get(`http://3.34.124.123:8080/event/${eventId}`)
+      .get(`http://15.164.61.252:8080/api/event/${eventId}`)
       .then((response) => {
         if (response.data) {
           setEventData(response.data);

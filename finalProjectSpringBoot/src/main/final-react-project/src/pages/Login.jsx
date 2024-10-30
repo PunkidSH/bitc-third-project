@@ -29,7 +29,7 @@ function Login() {
 
 
       try {
-        const response = await axios.post('http://3.34.124.123:8080/user/login', {
+        const response = await axios.post('http://15.164.61.252:8080/api/user/login', {
           userAccount: userAccount,
           userPw: userPw,
         },{
@@ -60,12 +60,12 @@ function Login() {
           sessionStorage.setItem("userRole", response.data.role);
 
           alert(`로그인 성공\n${response.data.name} ${permission}님 환영합니다.`);
-          window.location.href = '/';
+          navigate('/');
           console.log(response.data.userPw)
         }
         else {
           alert('사용자의 정보가 존재하지 않거나, 권한이 없습니다.\nID, Password, 권한을 확인해주세요.');
-          window.location.href = '/login';
+          navigate('/login');
         }
         // console.log("성공" + response.data.userAccount + response.data.name)
       }

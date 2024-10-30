@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -7,11 +7,12 @@ function DenyEventButton() {
   const { eventId } = useParams();
   const [eventAccept, setEventAccept] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
 
 useEffect(() => {
     axios
-      .get(`http://3.34.124.123:8080/event/${eventId}`)
+      .get(`http://15.164.61.252:8080/api/event/${eventId}`)
       .then((response) => {
         if (response.data) {
           setEventData(response.data);
@@ -31,8 +32,8 @@ useEffect(() => {
         const confirmed = window.confirm("행사 승인 거부하시겠습니까?");
         if (confirmed) {
           alert("승인 거부되었습니다.");
-          window.location.href = `/event/${eventId}`
-          const response = await axios.put(`http://3.34.124.123:8080/event/denyEvent/${eventId}`)
+          navigate(`/event/${eventId}`);
+          const response = await axios.put(`http://15.164.61.252:8080/api/event/denyEvent/${eventId}`)
           setEventData(eventData.filter(eventData => eventData.eventId !== eventId));
           setEventAccept(response.data);
         } else {

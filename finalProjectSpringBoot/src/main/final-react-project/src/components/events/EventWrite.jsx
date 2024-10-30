@@ -1,15 +1,16 @@
 import Events from "../../pages/Events.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useLocation, useParams } from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 
 function EventWrite() {
   const { eventId } = useParams();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const mode = queryParams.get('mode');
+  const navigate = useNavigate();
 
-  const cancelBtn = () => window.location.href = "/";
+  const cancelBtn = () => navigate("/");
 
   const [eventTitle, setEventTitle] = useState('');
   const [eventStartDate, setEventStartDate] = useState('');
@@ -21,7 +22,7 @@ function EventWrite() {
 
   useEffect(() => {
     if (mode === 'update') {
-      axios.get(`http://3.34.124.123:8080/event/updateEvent/${eventId}`)
+      axios.get(`http://15.164.61.252:8080/api/event/updateEvent/${eventId}`)
         .then((res) => {
           const data = res.data;
           setEventTitle(data.eventTitle);
@@ -75,28 +76,28 @@ function EventWrite() {
       }
 
       if (mode === 'update') {
-        axios.put(`http://3.34.124.123:8080/event/updateEvent/${eventId}`, formData, {
+        axios.put(`http://15.164.61.252:8080/api/event/updateEvent/${eventId}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         })
           .then(() => {
             alert('등록에 성공했습니다. 협회장 승인을 기다려주세요.');
-            window.location.href = '/';
+            navigate('/');
           })
           .catch(e => {
             alert('등록 실패!\n'+ e.message + '\n관리자에게 문의하세요.');
           });
       }
       else {
-        axios.post('http://3.34.124.123:8080/event/write', formData, {
+        axios.post('http://15.164.61.252:8080/api/event/write', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
         })
           .then(() => {
             alert('등록에 성공했습니다. 협회장 승인을 기다려주세요.');
-            window.location.href = '/';
+            navigate('/');
           })
           .catch(e => {
             alert('등록 실패!\n'+ e.message + '\n관리자에게 문의하세요.');

@@ -1,4 +1,3 @@
-import axios from "axios";
 
 function Header () {
 
@@ -7,7 +6,7 @@ function Header () {
 
     if (confirmed === true) {
       sessionStorage.clear();
-      window.location.href = '/login'
+      window.location.href = '/';
     }
   }
 

@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ function DenyEventButton() {
   const { eventId } = useParams();
   const [eventAccept, setEventAccept] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
 
 useEffect(() => {
@@ -31,7 +32,7 @@ useEffect(() => {
         const confirmed = window.confirm("행사 승인 거부하시겠습니까?");
         if (confirmed) {
           alert("승인 거부되었습니다.");
-          window.location.href = `/event/${eventId}`
+          navigate(`/event/${eventId}`);
           const response = await axios.put(`http://localhost:8080/event/denyEvent/${eventId}`)
           setEventData(eventData.filter(eventData => eventData.eventId !== eventId));
           setEventAccept(response.data);

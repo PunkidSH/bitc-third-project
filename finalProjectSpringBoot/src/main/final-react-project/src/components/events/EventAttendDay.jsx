@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { isLate, isEarlyLeave } from '../../utils/util.js';
+import {useNavigate} from "react-router-dom";
 
 function EventAttendDay({ day, attendData, eventDate, eventStartTime, eventEndTime }) {
   const [searchName, setSearchName] = useState('');
@@ -7,6 +8,7 @@ function EventAttendDay({ day, attendData, eventDate, eventStartTime, eventEndTi
   const [selectedLate, setSelectedLate] = useState('');
   const [selectedEarlyLeave, setSelectedEarlyLeave] = useState('');
   const [accountSearch, setAccountSearch] = useState('');
+  const navigate = useNavigate();
 
   const totalAttendees = attendData.length;
   const attendeesPresent = attendData.filter(item => item.checkOutTime != null).length;

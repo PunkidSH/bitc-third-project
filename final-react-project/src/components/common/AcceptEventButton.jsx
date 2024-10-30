@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ function AcceptEventButton() {
     const [eventData, setEventData] = useState([]);
     const [eventAccept, setEventAccept] = useState('');
     const [error, setError] = useState(null);
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios
@@ -39,7 +40,7 @@ function AcceptEventButton() {
                 })
                     .then(() => {
                         alert("승인되었습니다.");
-                        window.location.href = `/event/${eventId}`
+                        navigate(`/event/${eventId}`);
                     })
                 setEventData(eventData.filter(eventData => eventData.eventId !== eventId));
                 setEventAccept(response.data);
@@ -56,7 +57,7 @@ function AcceptEventButton() {
                 })
                     .then(() => {
                         alert("승인취소되었습니다.");
-                        window.location.href = `/event/${eventId}`
+                        navigate(`/event/${eventId}`);
                     })
                 setEventData(eventData.filter(eventData => eventData.eventId !== eventId));
                 setEventAccept(response.data);

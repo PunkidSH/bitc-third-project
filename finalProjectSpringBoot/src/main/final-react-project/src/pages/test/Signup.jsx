@@ -15,7 +15,7 @@ function Signup() {
 
   const signupHandler = (e) => {
     e.preventDefault()
-    axios.put('http://3.34.124.123:8080/user/signup', {
+    axios.put('http://15.164.61.252:8080/api/user/signup', {
         userAccount: userAccount,
         userPw: userPw,
         userPermission: userPermission,

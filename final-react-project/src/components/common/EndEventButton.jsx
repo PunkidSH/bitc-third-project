@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 function EndEventButton() {
   const [eventData, setEventData] = useState([]);
@@ -9,6 +9,7 @@ function EndEventButton() {
   const [eventAccept, setEventAccept] = useState('');
   const [isRegistrationOpen, setIsRegistrationOpen] = useState();
   const [error, setError] = useState(null);
+  const navigate = useNavigate()
 
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function EndEventButton() {
         const confirmed = window.confirm("행사 모집 종료하시겠습니까?");
         if (confirmed) {
           alert("행사 모집종료되었습니다.");
-          window.location.href = `/event/${eventId}`
+          navigate(`/event/${eventId}`);
           const response = await axios.put(`http://localhost:8080/event/endEvent/${eventId}`)
           setEventData(eventData.filter(eventData => eventData.eventId !== eventId));
           setEventAccept(response.data);

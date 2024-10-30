@@ -1,5 +1,5 @@
 import Events from "../../pages/Events.jsx";
-import { NavLink, Link } from "react-router-dom";
+import {NavLink, Link, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "../common/Pagination.jsx";
@@ -17,6 +17,7 @@ function EventList() {
     const [searchTerm, setSearchTerm] = useState('');
     const [uploaderSearchTerm, setUploaderSearchTerm] = useState('');
     const [approverSearchTerm, setApproverSearchTerm] = useState('');
+    const navigate = useNavigate();
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -103,7 +104,7 @@ function EventList() {
             });
     }, []);
 
-    const moveToEventWrite = () => window.location.href = '/event/write';
+    const moveToEventWrite = () => navigate('/event/write');
 
     if (loading) {
         return <div>Loading...</div>;
