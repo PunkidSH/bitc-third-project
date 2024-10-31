@@ -45,7 +45,7 @@ React Front-End 참석자 관리 및 각종 검색기능 제작<br>
 </details>
 <details>
 <summary>시연 영상</summary>
-<a href="https://youtu.be/JRwxTt_Xggc">영상 링크</a>
+<a href="https://youtu.be/JRwxTt_Xggc">영상 링크(YouTube)</a>
 </details>
 
 # 주요기능
