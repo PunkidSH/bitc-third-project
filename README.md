@@ -30,12 +30,22 @@ React Front-End 참석자 관리 및 각종 검색기능 제작<br>
 # ERD & USE-CASE
 <details>
 <summary>ERD</summary>
-<img src="" alt="ERD" />
+<img src="ERD.png" alt="ERD" />
 </details>
 <details>
 <summary>USE-CASE</summary>
-<img src="" alt="USE-CASE" />
+<img src="UseCase.png" alt="USE-CASE" />
+</details>
+<details>
+<summary>Mockup</summary>
+<img src="Web Mockup.png">
+<img src="App Mockup.png">
 </details><br>
+
+<details>
+<summary>시연 영상</summary>
+<video src="QRCheckVideo.mp4">
+</details>
 
 # 주요기능
 1. React Web
