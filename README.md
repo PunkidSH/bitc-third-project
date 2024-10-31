@@ -40,11 +40,10 @@ React Front-End 참석자 관리 및 각종 검색기능 제작<br>
 <summary>Mockup</summary>
 <img src="Web Mockup.png">
 <img src="App Mockup.png">
-</details><br>
-
+</details>
 <details>
 <summary>시연 영상</summary>
-<video src="QRCheckVideo.mp4">
+<a href="https://youtu.be/JRwxTt_Xggc">영상 링크</a>
 </details>
 
 # 주요기능
